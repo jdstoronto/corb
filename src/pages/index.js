@@ -18,8 +18,8 @@ const headingStyles = {
 
 // markup
 const IndexPage = ({data}) => {
-  //console.log(data)
-  const imageRes = data.allWpPage.edges[0].node.featuredImage.node.sourceUrl
+  console.log(data)
+  const imageRes = data.allWpPage.edges.find(edge =>edge.node.title.includes(`Home`)).node.featuredImage.node.sourceUrl
   const postSections = data.allWpPost.edges.map(edge =>edge.node.title)
   const videoURL = data.allWpMediaItem.edges.find(edge => edge.node.title.includes("Video")).node.mediaItemUrl
   
@@ -125,7 +125,7 @@ query HomeQuery{
         title
       }
     }
-    allWpPage(filter: {title: {eq: "Home Page"}}) {
+    allWpPage {
       edges {
         node {
           title

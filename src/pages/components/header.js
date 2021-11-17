@@ -5,6 +5,13 @@ const Header = () => {
   const data = useStaticQuery(
     graphql`
     query HeadingQuery {
+      allWpPage{
+        edges {
+          node {
+            title
+          }
+        }
+      }
       allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Homepage Sections"}}}}}) {
         edges {
           node {
@@ -30,6 +37,7 @@ const Header = () => {
   
   //console.log(data)
   const postSections = data.allWpPost.edges.map(edge =>edge.node.title)
+  const pages = data.allWpPage.edges.map(edge =>edge.node.title)
   const logoURL = data.allWpMediaItem.edges.find(edge => edge.node.title === "Logo").node.sourceUrl
 
   return(
@@ -39,7 +47,7 @@ const Header = () => {
           <div className="row" style={{width:`100%`}}>
             <div className="col-4">
               <div className="navbar-nav">
-                {postSections.map(title => (<a key={`nav${title}`} className="nav-item nav-link" href={`#${title}`}>{title}</a>))}
+                {pages.map(title => (<a key={`nav${title}`} className="nav-item nav-link" href={`#${title}`}>{title}</a>))}
               </div>
             </div>
             <div className="col-4 mx-auto">
@@ -53,7 +61,7 @@ const Header = () => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav m-auto">
-              <a className="nav-item nav-link active" href="#">Home</a>
+              <a className="nav-item nav-link active" href="#">Unit</a>
               
               {postSections.map(title => (<a key={title} className="nav-item nav-link" href={`#${title}`}>{title}</a>))}
             </div>
