@@ -1,22 +1,19 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://www.pre-corb.com",
     title: "CORB_Website",
   },
+  pathPrefix: "/corb",
   plugins: [
     {
       resolve: "gatsby-source-wordpress",
       options: {
-        url: "http://pre-corb.com/graph",
+        url: process.env.WPGRAPHQL_URL || "http://pre-corb.com/graph",
+        hostingWPCOM: false,
+        useACF: true,
       },
     },
     "gatsby-plugin-image",
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "",
-      },
-    },
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
