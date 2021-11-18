@@ -31,6 +31,7 @@ const Header = ({sections}) => {
 
   const postSections = sections
   console.log(postSections)
+    
   const pages = data.allWpPage.edges.map(edge =>edge.node.title)
   const logoURL = data.allWpMediaItem.edges.find(edge => edge.node.title === "Logo").node.sourceUrl
 
@@ -54,6 +55,7 @@ const Header = ({sections}) => {
           </div>
         </div>
         </nav>
+        {(postSections) &&
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav m-auto">
@@ -62,6 +64,7 @@ const Header = ({sections}) => {
             </div>
           </div>
         </nav>
+      }
       </div>
     )
   }
