@@ -17,7 +17,7 @@ const headingStyles = {
 }
 
 // markup
-const IndexPage = ({data}) => {
+const SupportPage = ({data}) => {
   console.log(data)
   const imageRes = data.allWpPage.edges.find(edge =>edge.node.title.includes(`Home`)).node.featuredImage.node.sourceUrl
   const postSections = data.allWpPost.edges.map(edge =>edge.node.title)
@@ -88,7 +88,7 @@ const IndexPage = ({data}) => {
 
   return (
     <main style={pageStyles} >
-      <Header sections ={postSections}/>
+      <Header />
       <title>Home Page</title>
       <h1 style={headingStyles}>
         {data.site.siteMetadata.title}
@@ -109,10 +109,10 @@ const IndexPage = ({data}) => {
 
 }
 
-export default IndexPage
+export default SupportPage
 
 export const query = graphql`
-query HomeQuery{
+query SupportQuery{
   allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Homepage Sections"}}}}}) {
     edges {
       node {

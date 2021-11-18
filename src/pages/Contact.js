@@ -17,7 +17,7 @@ const headingStyles = {
 }
 
 // markup
-const IndexPage = ({data}) => {
+const ContactPage = ({data}) => {
   console.log(data)
   const imageRes = data.allWpPage.edges.find(edge =>edge.node.title.includes(`Home`)).node.featuredImage.node.sourceUrl
   const postSections = data.allWpPost.edges.map(edge =>edge.node.title)
@@ -30,40 +30,6 @@ const IndexPage = ({data}) => {
   var playbackConst = 1000;
   var frameDuration = 1;
   // get page height from video duration
-
-  
-  /*
-  enterView({
-            selector: 'section',
-            enter: function(el) {
-                el.classList.add('entered');
-            }
-        })
-    
-        var frameNumber = 0, // start video at frame 0
-        // lower numbers = faster playback
-        playbackConst = 1000, 
-        // get page height from video duration
-        setHeight = document.getElementById("set-height"), 
-        // select video element         
-        vid = document.getElementById('v0'); 
-        // var vid = $('#v0')[0]; // jquery option
-
-    // dynamically set the page height according to video length
-    vid.addEventListener('loadedmetadata', function() {
-    setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-    });
-
-
-    // Use requestAnimationFrame for smooth playback
-    function scrollPlay(){  
-    var frameNumber  = window.pageYOffset/playbackConst;
-    vid.currentTime  = frameNumber;
-    window.requestAnimationFrame(scrollPlay);
-    }
-
-    window.requestAnimationFrame(scrollPlay);
-    */
 
     React.useEffect(() => {
       var setHeight = document.getElementById("scrollingInfo"); 
@@ -88,7 +54,7 @@ const IndexPage = ({data}) => {
 
   return (
     <main style={pageStyles} >
-      <Header sections ={postSections}/>
+      <Header />
       <title>Home Page</title>
       <h1 style={headingStyles}>
         {data.site.siteMetadata.title}
@@ -109,10 +75,10 @@ const IndexPage = ({data}) => {
 
 }
 
-export default IndexPage
+export default ContactPage
 
 export const query = graphql`
-query HomeQuery{
+query ContactQuery{
   allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Homepage Sections"}}}}}) {
     edges {
       node {
