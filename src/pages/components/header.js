@@ -49,6 +49,8 @@ const Header = ({sections}) => {
               <img src={logoURL}/>
               </a>
             </div>
+            <div className="col-4">
+            </div>
           </div>
         </div>
         </nav>
