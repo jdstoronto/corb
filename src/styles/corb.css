@@ -34,6 +34,9 @@ body {
   object-fit: cover;
 }
 
+#contactForm{
+  margin-top: 50px;
+}
 .navbar-logo img{
   width: 50px;
 }

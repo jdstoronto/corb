@@ -46,7 +46,7 @@ const Header = ({sections}) => {
               </div>
             </div>
             <div className="col-4 mx-auto">
-              <a className="navbar-logo" href="#">
+              <a className="navbar-logo" href="/Home">
               <img src={logoURL}/>
               </a>
             </div>

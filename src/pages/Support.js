@@ -10,99 +10,25 @@ const pageStyles = {
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 const headingStyles = {
-  marginTop: 0,
+  marginTop: 50,
   marginBottom: 64,
-  maxWidth: 320,
+  maxWidth: 600,
   position: "fixed",
 }
 
 // markup
 const SupportPage = ({data}) => {
   console.log(data)
-  const imageRes = data.allWpPage.edges.find(edge =>edge.node.title.includes(`Home`)).node.featuredImage.node.sourceUrl
-  const postSections = data.allWpPost.edges.map(edge =>edge.node.title)
-  const videoURL = data.allWpMediaItem.edges.find(edge => edge.node.title.includes("Video")).node.mediaItemUrl
-  
-  
 
-  var frameNumber = 0; // start video at frame 0
-  // lower numbers = faster playback
-  var playbackConst = 1000;
-  var frameDuration = 1;
-  // get page height from video duration
-
-  
-  /*
-  enterView({
-            selector: 'section',
-            enter: function(el) {
-                el.classList.add('entered');
-            }
-        })
-    
-        var frameNumber = 0, // start video at frame 0
-        // lower numbers = faster playback
-        playbackConst = 1000, 
-        // get page height from video duration
-        setHeight = document.getElementById("set-height"), 
-        // select video element         
-        vid = document.getElementById('v0'); 
-        // var vid = $('#v0')[0]; // jquery option
-
-    // dynamically set the page height according to video length
-    vid.addEventListener('loadedmetadata', function() {
-    setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-    });
-
-
-    // Use requestAnimationFrame for smooth playback
-    function scrollPlay(){  
-    var frameNumber  = window.pageYOffset/playbackConst;
-    vid.currentTime  = frameNumber;
-    window.requestAnimationFrame(scrollPlay);
-    }
-
-    window.requestAnimationFrame(scrollPlay);
-    */
-
-    React.useEffect(() => {
-      var setHeight = document.getElementById("scrollingInfo"); 
-      // select video element         
-      var vid = document.getElementById('featureVideo'); 
-      // var vid = $('#v0')[0]; // jquery option
-      if(!frameDuration){
-        frameDuration = 1;
-      }
-      // dynamically set the page height according to video length
-      vid.addEventListener('loadedmetadata', function() {
-      //setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-      frameDuration = vid.duration
-      });
-
-      window.addEventListener('scroll', (event) => {
-        console.log(window.pageYOffset);
-        var frameNumber  = (window.pageYOffset/(setHeight.clientHeight-window.innerHeight))*frameDuration;
-        vid.currentTime  = frameNumber;
-      });
-    });
+    React.useEffect(() => {console.log("test")});
 
   return (
     <main style={pageStyles} >
       <Header />
       <title>Home Page</title>
-      <h1 style={headingStyles}>
-        {data.site.siteMetadata.title}
-      </h1>
-      <div id= "featureVideoContainer">
-        <video id="featureVideo" tabIndex="0" autoPlay preload="true">
-          <source  src={videoURL}></source>
-        </video>
-      </div>
-      <div id="scrollingInfo">
-        <div id= "featureImage">
-          <img src={imageRes}/>
-        </div>
-        {postSections.map(title => (<div key={title} id={title} className= "descriptionContainer" style={{height:`${window.innerHeight}px`}}>{title}</div>))}
+      <h3 style={headingStyles} dangerouslySetInnerHTML={{__html:data.wpPage.content}} />
+      <div id="products">
+        products
       </div>
     </main>
   )
@@ -113,43 +39,10 @@ export default SupportPage
 
 export const query = graphql`
 query SupportQuery{
-  allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Homepage Sections"}}}}}) {
-    edges {
-      node {
-        title
-      }
-    }
+  wpPage(title: {eq: "Support"}) {
+    id
+    content
   }
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allWpPage {
-      edges {
-        node {
-          title
-          featuredImage {
-            node {
-              id
-              sourceUrl
-            }
-          }
-        }
-      }
-    }
-    allWpMediaItem(filter: {author: {node: {pages: {nodes: {elemMatch: {title: {glob: "*Home*"}}}}}}}) {
-      edges {
-        node {
-          id
-          mediaType
-          sourceUrl
-          title
-          link
-          mediaItemUrl
-        }
-      }
-    }
-  }
+}
 
 `
