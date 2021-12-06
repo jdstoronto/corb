@@ -44,5 +44,4 @@ query SupportQuery{
     content
   }
 }
-
 `

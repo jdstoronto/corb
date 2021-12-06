@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Header from "./components/header"
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
+import { isMobile } from "react-device-detect";
 
 // styles
 const pageStyles = {

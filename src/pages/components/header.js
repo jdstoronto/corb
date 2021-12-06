@@ -1,7 +1,8 @@
 import * as React from "react"
 import { graphql, useStaticQuery, Link } from 'gatsby'
+import { isMobile } from "react-device-detect";
 
-const Header = ({sections}) => {
+const Header = (props) => {
   const data = useStaticQuery(
     graphql`
     query HeadingQuery {
@@ -12,7 +13,7 @@ const Header = ({sections}) => {
           }
         }
       }
-      allWpMediaItem(filter: {author: {node: {pages: {nodes: {elemMatch: {title: {glob: "*Home*"}}}}}}}) {
+      allWpMediaItem {
         edges {
           node {
             id
@@ -29,9 +30,10 @@ const Header = ({sections}) => {
   )
   
 
-  const postSections = sections
+  const postSections = props.sections
   console.log(postSections)
-    
+  console.log(data)
+
   const pages = data.allWpPage.edges.map(edge =>edge.node.title)
   const logoURL = data.allWpMediaItem.edges.find(edge => edge.node.title === "Logo").node.sourceUrl
 
