@@ -31,7 +31,6 @@ const Header = (props) => {
   
 
   const postSections = props.sections
-  console.log(postSections)
   console.log(data)
 
   const pages = data.allWpPage.edges.map(edge =>edge.node.title)
@@ -44,7 +43,7 @@ const Header = (props) => {
           <div className="row" style={{width:`100%`}}>
             <div className="col-4">
               <div className="navbar-nav">
-                {pages.map(title => (<a key={`nav${title}`} className="nav-item nav-link" href={`/${title}`}>{title}</a>))}
+                {pages.map(title => (<a key={`nav${title}`} className="nav-item nav-link" href={`/${title.replace(' ', '')}`}>{title}</a>))}
               </div>
             </div>
             <div className="col-4 mx-auto">
