@@ -16,74 +16,64 @@ const headingStyles = {
   position: "fixed",
 }
 
+const AboutPost = (props) => {
+  var contentArray = props.section.content.split("\n")
+  contentArray = contentArray.filter(Boolean)
+  //Description is the last element in the post
+  var descriptionHTML = contentArray.at(-1)
+  
+
+  return(
+    <div className="col-4">
+    <h2>{props.section.title}</h2>
+    {props.section.featuredImage?<img src={props.section.featuredImage.node.sourceUrl}/>:null}
+    <div id= "contactForm" dangerouslySetInnerHTML={{__html:descriptionHTML }}></div>
+    </div>
+  )
+}
+
 // markup
 const AboutPage = ({data}) => {
+  console.log("about data")
   console.log(data)
-  const imageRes = data.allWpPage.edges.find(edge =>edge.node.title.includes(`Home`)).node.featuredImage.node.sourceUrl
-  const postSections = data.allWpPost.edges.map(edge =>edge.node.title)
-  const videoURL = data.allWpMediaItem.edges.find(edge => edge.node.title.includes("Video")).node.mediaItemUrl
-  
-  
+ 
+  const postSections = data.allWpPost.edges.map(edge =>edge.node)
 
-  var frameNumber = 0; // start video at frame 0
-  // lower numbers = faster playback
-  var playbackConst = 1000;
-  var frameDuration = 1;
-  // get page height from video duration
-
-    React.useEffect(() => {});
+  React.useEffect(() => {});
 
   return (
     <main style={pageStyles} >
-      <Header sections ={postSections}/>
+      <Header sections ={postSections.map(section=>(section.title))}/>
       <title>About</title>
-      <div></div>
+      <div className="container">
+          <div className="row" style={{width:`100%`}}>
+              {postSections.map(section=>(<AboutPost section ={section} />))}
+        </div>
+      </div>
     </main>
   )
-
 }
 
 export default AboutPage
 
 export const query = graphql`
-query AboutQuery{
-  allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "About Posts"}}}}}) {
+query AboutQuery {
+  allWpPost(
+    filter: {categories: {nodes: {elemMatch: {name: {eq: "About Posts"}}}}}
+  ) {
     edges {
       node {
         title
-      }
-    }
-  }
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allWpPage {
-      edges {
-        node {
-          title
-          featuredImage {
-            node {
-              id
-              sourceUrl
-            }
+        featuredImage {
+          node {
+            sourceUrl
           }
         }
-      }
-    }
-    allWpMediaItem(filter: {author: {node: {pages: {nodes: {elemMatch: {title: {glob: "*Home*"}}}}}}}) {
-      edges {
-        node {
-          id
-          mediaType
-          sourceUrl
-          title
-          link
-          mediaItemUrl
-        }
+        content
+        excerpt
       }
     }
   }
+}
 
 `
