@@ -19,12 +19,10 @@ const headingStyles = {
 
 // markup
 const IndexPage = ({data}) => {
-  console.log(data)
+  //console.log(data)
   const imageRes = data.allWpPage.edges.find(edge =>edge.node.title.includes(`Home`)).node.featuredImage.node.sourceUrl
   const postSections = data.allWpPost.edges.map(edge =>edge.node.title)
   const videoURL = data.allWpMediaItem.edges.find(edge => edge.node.title.includes("Video")).node.mediaItemUrl
-  
-  
 
   var frameNumber = 0; // start video at frame 0
   // lower numbers = faster playback
@@ -32,39 +30,6 @@ const IndexPage = ({data}) => {
   var frameDuration = 1;
   // get page height from video duration
 
-  
-  /*
-  enterView({
-            selector: 'section',
-            enter: function(el) {
-                el.classList.add('entered');
-            }
-        })
-    
-        var frameNumber = 0, // start video at frame 0
-        // lower numbers = faster playback
-        playbackConst = 1000, 
-        // get page height from video duration
-        setHeight = document.getElementById("set-height"), 
-        // select video element         
-        vid = document.getElementById('v0'); 
-        // var vid = $('#v0')[0]; // jquery option
-
-    // dynamically set the page height according to video length
-    vid.addEventListener('loadedmetadata', function() {
-    setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-    });
-
-
-    // Use requestAnimationFrame for smooth playback
-    function scrollPlay(){  
-    var frameNumber  = window.pageYOffset/playbackConst;
-    vid.currentTime  = frameNumber;
-    window.requestAnimationFrame(scrollPlay);
-    }
-
-    window.requestAnimationFrame(scrollPlay);
-    */
 
     React.useEffect(() => {
       var setHeight = document.getElementById("scrollingInfo"); 
