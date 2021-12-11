@@ -18,8 +18,11 @@ const headingStyles = {
 
 // markup
 const ContactPage = ({data}) => {
-
-    React.useEffect(() => {console.log("Contact Us")});
+  var contentArray = data.wpPage.content.split("\n")
+  contentArray = contentArray.filter(Boolean)
+  console.log(contentArray)
+  
+  React.useEffect(() => {console.log("Contact Us")});
 
   return (
     <main style={pageStyles} >
