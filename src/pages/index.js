@@ -68,7 +68,7 @@ const IndexPage = ({data}) => {
         <div id= "featureImage">
           <img src={imageRes}/>
         </div>
-        {postSections.map(title => (<div key={title} id={title} className= "descriptionContainer" style={{height:`${window.innerHeight}px`}}>{title}</div>))}
+        {postSections.map(title => (<div key={title} id={title} className= "descriptionContainer" style={{height:` 5gpx`}}>{title}</div>))}
       </div>
     </main>
   )
@@ -77,7 +77,7 @@ const IndexPage = ({data}) => {
 
 export default IndexPage
 
-export const query = graphql`
+export const indexQuery = graphql`
 query HomeQuery{
   allWpPost(filter: {categories: {nodes: {elemMatch: {name: {eq: "Homepage Sections"}}}}}) {
     edges {

@@ -20,7 +20,7 @@ const headingStyles = {
 const SupportPage = ({data}) => {
   console.log(data)
 
-    React.useEffect(() => {console.log("test")});
+  useEffect(() => {console.log("test")});
 
   return (
     <main style={pageStyles} >
@@ -37,7 +37,7 @@ const SupportPage = ({data}) => {
 
 export default SupportPage
 
-export const query = graphql`
+export const supportQuery = graphql`
 query SupportQuery{
   wpPage(title: {eq: "Support"}) {
     id

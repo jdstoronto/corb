@@ -20,7 +20,7 @@ const AboutPost = (props) => {
   var contentArray = props.section.content.split("\n")
   contentArray = contentArray.filter(Boolean)
   //Description is the last element in the post
-  var descriptionHTML = contentArray.at(-1)
+  var descriptionHTML = contentArray[contentArray.length-2]
   
 
   return(
@@ -56,7 +56,7 @@ const AboutPage = ({data}) => {
 
 export default AboutPage
 
-export const query = graphql`
+export const aboutQuery = graphql`
 query AboutQuery {
   allWpPost(
     filter: {categories: {nodes: {elemMatch: {name: {eq: "About Posts"}}}}}
@@ -70,10 +70,8 @@ query AboutQuery {
           }
         }
         content
-        excerpt
       }
     }
   }
 }
-
 `
