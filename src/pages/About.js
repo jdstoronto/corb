@@ -19,8 +19,9 @@ const headingStyles = {
 const AboutPost = (props) => {
   var contentArray = props.section.content.split("\n")
   contentArray = contentArray.filter(Boolean)
+  console.log(contentArray)
   //Description is the last element in the post
-  var descriptionHTML = contentArray[contentArray.length-2]
+  var descriptionHTML = contentArray[contentArray.length-1]
   
 
   return(
