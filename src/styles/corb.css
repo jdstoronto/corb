@@ -14,12 +14,25 @@ body {
   width: 100%;
   min-width: 600px;
   z-index: 99999;
+}
+
+#header-top{
   background: #ffffff;
 }
 
 .navbar-logo > img {
   display: block;
   margin: auto;
+}
+
+.navblock-left{
+  width: 4em;
+  border-bottom-left-radius: 1em;
+}
+
+.navblock-right{
+  width: 4em;
+  border-bottom-right-radius: 1em;
 }
 
 #featureImage{

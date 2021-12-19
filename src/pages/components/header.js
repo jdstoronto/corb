@@ -38,34 +38,35 @@ const Header = (props) => {
 
   return(
         <div id="header">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container">
-          <div className="row" style={{width:`100%`}}>
-            <div className="col-4">
-              <div className="navbar-nav">
-                {pages.map(title => (<a key={`nav${title}`} className="nav-item nav-link" href={`/${title.replace(' ', '')}`}>{title}</a>))}
+          <nav className="navbar navbar-expand-lg navbar-light bg-light" id="header-top">
+            <div className="container">
+              <div className="row" style={{width:`100%`}}>
+                <div className="col-4">
+                  <div className="navbar-nav">
+                    {pages.map(title => (<a key={`nav${title}`} className="nav-item nav-link" href={`/${title.replace(' ', '')}`}>{title}</a>))}
+                  </div>
+                </div>
+                <div className="col-4">
+                  <a className="navbar-logo" href="/Home">
+                  <img src={logoURL}/ >
+                  </a>
+                </div>
+                <div className="col-4">
+                </div>
               </div>
             </div>
-            <div className="col-4 mx-auto">
-              <a className="navbar-logo" href="/Home">
-              <img src={logoURL}/>
-              </a>
-            </div>
-            <div className="col-4">
-            </div>
-          </div>
-        </div>
-        </nav>
+          </nav>
         {(postSections) &&
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light">
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav m-auto">
-              {/*<a className="nav-item nav-link active" href="#">Unit</a>*/}
-              {postSections.map(title => (<a key={title} className="nav-item nav-link" href={`#${title}`}>{title}</a>))}
+              <div className="navblock-left bg-light"></div>
+              {postSections.map(title => (<a key={title} className="nav-item nav-link bg-light" href={`#${title}`}>{title}</a>))}
+              <div className="navblock-right bg-light"></div>
             </div>
           </div>
         </nav>
-      }
+        }
       </div>
     )
   }
