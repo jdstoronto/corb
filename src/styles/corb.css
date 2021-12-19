@@ -17,6 +17,11 @@ body {
   background: #ffffff;
 }
 
+.navbar-logo > img {
+  display: block;
+  margin: auto;
+}
+
 #featureImage{
   top: 0px;
   bottom: 0px;
