@@ -32,7 +32,7 @@ const IndexPage = ({data}) => {
 
 
     React.useEffect(() => {
-      var setHeight = document.getElementById("scrollingInfo"); 
+      var setHeight = document.getElementById("scrollingPage"); 
       // select video element         
       var vid = document.getElementById('featureVideo'); 
       // var vid = $('#v0')[0]; // jquery option
@@ -64,7 +64,7 @@ const IndexPage = ({data}) => {
           <source  src={videoURL}></source>
         </video>
       </div>
-      <div id="scrollingInfo">
+      <div id="scrollingPage">
         <div id= "featureImage">
           <img src={imageRes}/>
         </div>

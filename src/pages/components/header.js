@@ -10,6 +10,7 @@ const Header = (props) => {
         edges {
           node {
             title
+            menuOrder
           }
         }
       }
@@ -33,7 +34,13 @@ const Header = (props) => {
   const postSections = props.sections
   console.log(data)
 
-  const pages = data.allWpPage.edges.map(edge =>edge.node.title)
+  const pages = data.allWpPage.edges.map(edge =>edge.node)
+  const pagesIndex = data.allWpPage.edges.map(edge =>edge.node.menuOrder)
+
+  console.log(pages)
+  pages.sort((a,b)=>a.menuOrder-b.menuOrder);
+  console.log(pages)
+
   const logoURL = data.allWpMediaItem.edges.find(edge => edge.node.title === "Logo").node.sourceUrl
 
   return(
@@ -43,12 +50,15 @@ const Header = (props) => {
               <div className="row" style={{width:`100%`}}>
                 <div className="col-4">
                   <div className="navbar-nav">
-                    {pages.map(title => (<a key={`nav${title}`} className="nav-item nav-link" href={`/${title.replace(' ', '')}`}>{title}</a>))}
+                    {pages.map(page => {
+                      let title = page.title;
+                      return <a key={`nav${title}`} className="nav-item nav-link" href={`/${title.replace(' ', '')}`}>{title}</a>})
+                    }
                   </div>
                 </div>
                 <div className="col-4">
                   <a className="navbar-logo" href="/Home">
-                  <img src={logoURL}/ >
+                  <img src={logoURL} alt="logo"/>
                   </a>
                 </div>
                 <div className="col-4">

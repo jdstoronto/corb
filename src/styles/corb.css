@@ -73,3 +73,10 @@ height: 700px;
 #featureVideo{
   width: 100%;
 }
+
+#scrollingPage{
+  position: absolute;
+    top: 0px;
+    z-index: -1;
+    width: 100%;
+}
