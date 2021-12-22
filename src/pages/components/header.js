@@ -35,7 +35,7 @@ const Header = (props) => {
 
     window.addEventListener('scroll', (event) => {
       if (window.pageYOffset>50){
-        console.log(header.classList.contains('siteHeader-squash'))
+        //console.log(header.classList.contains('siteHeader-squash'))
         if ( !header.classList.contains('siteHeader-squash') ){
           header.classList.add('siteHeader-squash')
         }   
