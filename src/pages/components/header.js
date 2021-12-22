@@ -30,21 +30,32 @@ const Header = (props) => {
   `
   )
   
+  React.useEffect(() => {
+    var header = document.getElementById('header'); 
+
+    window.addEventListener('scroll', (event) => {
+      if (window.pageYOffset>50){
+        console.log(header.classList.contains('siteHeader-squash'))
+        if ( !header.classList.contains('siteHeader-squash') ){
+          header.classList.add('siteHeader-squash')
+        }   
+      }else{
+        console.log(header.classList.remove('siteHeader-squash'))
+      }
+    });
+  });
 
   const postSections = props.sections
-  console.log(data)
 
   const pages = data.allWpPage.edges.map(edge =>edge.node)
   const pagesIndex = data.allWpPage.edges.map(edge =>edge.node.menuOrder)
 
-  console.log(pages)
   pages.sort((a,b)=>a.menuOrder-b.menuOrder);
-  console.log(pages)
 
   const logoURL = data.allWpMediaItem.edges.find(edge => edge.node.title === "Logo").node.sourceUrl
 
   return(
-        <div id="header">
+        <div id="header" className="siteHeader">
           <nav className="navbar navbar-expand-lg navbar-light bg-light" id="header-top">
             <div className="container">
               <div className="row" style={{width:`100%`}}>
