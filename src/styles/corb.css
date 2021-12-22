@@ -78,7 +78,8 @@ body {
 
 .descriptionContainer{
   padding-top: 60px;
-height: 700px;
+  height: 700px;
+  position: relative;
 }
 
 #featureVideoContainer{
@@ -100,9 +101,22 @@ height: 700px;
     width: 100%;
 }
 
-.end{
+.pt{
   height: 45px;
-    width: 44px;
+  width: 44px;
+  display: inline-block;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.start{
+  top: 36%;
+  left: 37%;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.363);
+}
+
+.end{
     border: black;
     border-width: 1px;
     border-style: outset;
@@ -113,7 +127,6 @@ height: 700px;
     top: 31%;
     left: 71%;
     position: relative;
-    display: inline-block
 }
 
 .endTitle{
@@ -121,4 +134,13 @@ height: 700px;
   margin-left: 0.5em;
   left: 71%;
   position: relative
+}
+
+.sectionDescription{
+  width: 30%;
+  background-color: #ffffffa8;
+  padding: 10px;
+  top: 55%;
+  left: 5em;
+  position: absolute;
 }
