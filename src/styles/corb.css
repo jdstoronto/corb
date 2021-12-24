@@ -13,7 +13,45 @@ body {
   width: 100%;
   min-width: 600px;
   z-index: 99999;
-  
+}
+
+.siteFooter{
+  font-size: 13px;
+  z-index: 99999;
+  width: 100%;
+  bottom: 0;
+  line-height: 2.45;
+  position: fixed;
+  transition: top 1s;
+  transition-timing-function: ease-out;
+}
+
+.footerTab{
+  color: #484849;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: "Helvetica Neue",sans-serif;
+  line-height: 2.45;
+  background-color:white;
+  min-width: 100px;
+  width: 150px;
+  z-index: 99999;
+  text-align: center;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  bottom: 0;
+  transition: top 1s;
+  transition-timing-function: ease-out;
+}
+
+.icons{
+  display: inline-block;
+}
+
+.icons > a > img {
+  height: 2.1em;
+  padding: 0.3em;
+  color: #484849;
 }
 
 .siteHeader{

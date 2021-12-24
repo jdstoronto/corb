@@ -1,5 +1,6 @@
 import * as React from "react"
 import Header from "./components/header"
+import Footer from "./components/footer"
 import Section from "./components/section"
 import { graphql, Link } from 'gatsby'
 import { isMobile } from "react-device-detect";
@@ -107,6 +108,7 @@ const IndexPage = ({data}) => {
           return <Section section={section} contents={contents}/>
         })}
       </div>
+      <Footer />
     </main>
   )
 
