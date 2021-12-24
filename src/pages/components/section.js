@@ -4,8 +4,8 @@ import { isMobile } from "react-device-detect";
 import LeaderLine from "leader-line-new";
 
 const Section = (props) => {
-    const [highlightNum, setHighlightNum] = React.useState(0);
-    const [selectNum, setSelectNum] = React.useState(0);
+    const [highlightNum, setHighlightNum] = React.useState(1);
+    const [selectNum, setSelectNum] = React.useState(1);
 
     React.useEffect(() => {
         props.contents.map(content =>{
@@ -20,8 +20,7 @@ const Section = (props) => {
     })
 
     const highlight =(num)=>{
-        console.log(this)
-        setHighlightNum(parseInt(num)-1)
+        setHighlightNum(num)
     }
 
     const unhighlight =()=>{
@@ -30,19 +29,22 @@ const Section = (props) => {
 
     return(
     <div key={`section_${props.section.title}`} id={props.section.title} className= "descriptionContainer">
-        {props.contents.map(content =>{
+        {props.contents.map((content, i) =>{
             return <div>
-                        <div className='start pt' id={`${content.Name}stpt1`} style={{top:`${content.Top}%`, left:`${content.Left}%`}} ></div>
+                        <div className='start pt' id={`${content.Name}stpt1`} style={{top:`${content.Top}%`, left:`${content.Left}%`}} onMouseEnter={()=>highlight(content.Number)} onMouseLeave={()=>unhighlight()} onClick={()=>setSelectNum(content.Number)}>
+                        </div>
                         <div className='leaderTitle'>
-                            <div className='end pt' id={`${content.Name}endpt1`} value={content.Number} onMouseEnter={()=>highlight(content.Number)} onMouseLeave={()=>unhighlight()}>{content.Number}</div>
+                            <div className={` ${(content.Number==selectNum)?`selected`:``} end pt`} id={`${content.Name}endpt1`} value={content.Number} onMouseEnter={()=>highlight(content.Number)} onMouseLeave={()=>unhighlight()} onClick={()=>setSelectNum(content.Number)}>
+                                {content.Number}
+                            </div>
                             <div className='endTitle'>{content.Name}</div>
                         </div>
                     </div>
         })}
 
         <div className="sectionDescription"> 
-            <h5>{props.contents[(highlightNum?highlightNum:selectNum)].Name}</h5>
-            {props.contents[(highlightNum?highlightNum:selectNum)].Description}
+            <h5>{props.contents[(highlightNum?highlightNum-1:selectNum-1)].Name}</h5>
+            {props.contents[(highlightNum?highlightNum-1:selectNum-1)].Description}
         </div>
     </div>
     )

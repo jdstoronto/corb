@@ -110,10 +110,11 @@ body {
 
 .pt{
   height: 45px;
-  width: 44px;
+  width: 45px;
   display: inline-block;
   font-size: 1.5em;
   text-align: center;
+  cursor:pointer;
 }
 
 .start{
@@ -127,13 +128,17 @@ body {
     border: black;
     border-width: 1px;
     border-style: outset;
-    background: #f8f9fa52;
+    background-color: #f8f9fa52;
     font-size: 1.5em;
     text-align: center;
     border-radius: 38px;
     top: 31%;
     left: 71%;
     position: relative;
+}
+
+.selected{
+  background-color: rgba(255, 255, 255, 0.842);
 }
 
 .endTitle{
