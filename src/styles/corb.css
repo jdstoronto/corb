@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(226, 226, 207);
+    background-color: #e2e1dc;
   }
 
 #header{
@@ -193,4 +193,28 @@ body {
   top: 55%;
   left: 5em;
   position: absolute;
+}
+
+.about{
+  margin-top:100px
+}
+
+.profilePic{
+  border-radius: 1em;
+  margin: 1.25em;
+}
+
+.profile{
+  font-family: sans-serif;
+  text-align: center;
+  color: #484849;
+}
+
+.profileDescr{
+  text-align: left;
+}
+
+.profileHead{
+  text-align: left;
+  padding-left: 1em;
 }

@@ -19,24 +19,26 @@ const headingStyles = {
 const AboutPost = (props) => {
   var contentArray = props.section.content.split("\n")
   contentArray = contentArray.filter(Boolean)
-  console.log(contentArray)
+  //console.log(contentArray)
   //Description is the last element in the post
   var descriptionHTML = contentArray[contentArray.length-1]
-  
+  console.log(props.section)
 
   return(
-    <div className="col-4">
-    <h2>{props.section.title}</h2>
-    {props.section.featuredImage?<img src={props.section.featuredImage.node.sourceUrl}/>:null}
-    <div id= "contactForm" dangerouslySetInnerHTML={{__html:descriptionHTML }}></div>
+    <div className="profile col-4">
+      {props.section.featuredImage?<img src={props.section.featuredImage.node.sourceUrl} className="profilePic"/>:null}
+      <div className="profileHead">
+        <h2>{props.section.title}</h2>
+        {props.section.tags.nodes.map(tag=><h5>{`${tag.name}`}</h5>)}
+      </div>
+      <div className="profileDescr" dangerouslySetInnerHTML={{__html:descriptionHTML }}></div>
     </div>
   )
 }
 
 // markup
 const AboutPage = ({data}) => {
-  console.log("about data")
-  console.log(data)
+  //console.log(data)
  
   const postSections = data.allWpPost.edges.map(edge =>edge.node)
 
@@ -46,7 +48,7 @@ const AboutPage = ({data}) => {
     <main style={pageStyles} >
       <Header sections ={postSections.map(section=>(section.title))}/>
       <title>About</title>
-      <div className="container">
+      <div className="about container">
           <div className="row" style={{width:`100%`}}>
               {postSections.map(section=>(<AboutPost section ={section} />))}
         </div>
@@ -71,6 +73,11 @@ query AboutQuery {
           }
         }
         content
+        tags {
+          nodes {
+            name
+          }
+        }
       }
     }
   }
