@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useEffect } from 'react';
 import Header from "./components/header"
+import Footer from './components/footer'
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 
@@ -28,9 +29,18 @@ const ContactPage = ({data}) => {
     <main style={pageStyles} >
       <Header />
       <title>Home Page</title>
-      <div id= "contactForm" dangerouslySetInnerHTML={{__html:data.wpPage.content}}>
-
+      <div className="container contact">
+        <div className="row">
+          <div className="col-5">
+            <div dangerouslySetInnerHTML={{__html:contentArray[0]}}/>
+            <div dangerouslySetInnerHTML={{__html:contentArray[1]}}/>
+          </div>
+          <div className="col-7">
+            <div id= "contactForm" dangerouslySetInnerHTML={{__html:contentArray[2]}} />
+          </div>
+        </div>
       </div>
+      <Footer />
     </main>
   )
 

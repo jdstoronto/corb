@@ -3,6 +3,7 @@ import 'popper.js/dist/popper.min';
 import "bootstrap/dist/css/bootstrap.css";
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './src/styles/corb.css';
+import './src/styles/wc-blocks.css';
 
 /**
  * Implement Gatsby's Browser APIs in this file.
