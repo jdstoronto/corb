@@ -6,17 +6,28 @@ import LeaderLine from "leader-line-new";
 const Section = (props) => {
     const [highlightNum, setHighlightNum] = React.useState(1);
     const [selectNum, setSelectNum] = React.useState(1);
+    var renderedLeader = false;
 
     React.useEffect(() => {
-        props.contents.map(content =>{
-            var myLine = new LeaderLine(
-                document.getElementById(`${content.Name}endpt1`),
-                document.getElementById(`${content.Name}stpt1`),
-                {color: 'grey', size: 2}
-              );
-            return myLine
-        })
-        
+        if(!renderedLeader){
+            let container = document.getElementById(props.section.title)
+            console.log(container.style.height)
+            console.log(window.innerHeight)
+            container.style.height = `${window.innerHeight}px`
+            container.style.color = "#ff0000";
+            console.log(container.style.height)
+            props.contents.map(content =>{
+                var myLine = new LeaderLine(
+                    document.getElementById(`${content.Name}endpt1`),
+                    document.getElementById(`${content.Name}stpt1`),
+                    {color: 'grey', size: 2}
+                );
+                return myLine
+            })
+            
+            renderedLeader=true;
+            
+        }
     })
 
     const highlight =(num)=>{
