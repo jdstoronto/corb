@@ -9,13 +9,13 @@ const Section = (props) => {
     var renderedLeader = false;
 
     React.useEffect(() => {
-        if(!renderedLeader){
+        if(!renderedLeader && document.getElementById(`${props.contents[0].Name}endpt1`)){
             let container = document.getElementById(props.section.title)
-            console.log(container.style.height)
-            console.log(window.innerHeight)
+            //console.log(container.style.height)
+            //console.log(window.innerHeight)
             container.style.height = `${window.innerHeight}px`
-            container.style.color = "#ff0000";
-            console.log(container.style.height)
+            //container.style.color = "#ff0000";
+            //console.log(container.style.height)
             props.contents.map(content =>{
                 var myLine = new LeaderLine(
                     document.getElementById(`${content.Name}endpt1`),
@@ -24,7 +24,6 @@ const Section = (props) => {
                 );
                 return myLine
             })
-            
             renderedLeader=true;
             
         }

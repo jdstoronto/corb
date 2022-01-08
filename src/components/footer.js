@@ -1,9 +1,9 @@
 import * as React from "react"
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { isMobile } from "react-device-detect";
-import  instaIcon from "../../images/I_Icon.svg";
-import  emailIcon from "../../images/E_Icon.svg";
-import  twitterIcon from "../../images/T_Icon.svg";
+import  instaIcon from "../images/I_Icon.svg";
+import  emailIcon from "../images/E_Icon.svg";
+import  twitterIcon from "../images/T_Icon.svg";
 
 const icons = [instaIcon,emailIcon,twitterIcon]
 
