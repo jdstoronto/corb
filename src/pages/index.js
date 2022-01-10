@@ -54,7 +54,7 @@ function objectFromTable(table){
 }
 // markup
 const IndexPage = ({data}) => {
-  console.log(data)
+  //console.log(data)
   const imageRes = data.allWpPage.edges.find(edge =>edge.node.title.includes(`Home`)).node.featuredImage.node.sourceUrl
   const allSections = data.allWpPost.edges.map(edge =>edge.node)
   const videoURL = data.allWpMediaItem.edges.find(edge => edge.node.title.includes("Video")).node.mediaItemUrl
@@ -105,7 +105,7 @@ const IndexPage = ({data}) => {
         </div>
         {postSections.map(section => {
           let contents = objectFromTable(section.content)
-          return <Section section={section} contents={contents}/>
+          return <Section key={section.title} section={section} contents={contents}/>
         })}
       </div>
       <Footer />

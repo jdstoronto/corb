@@ -38,9 +38,9 @@ const Section = (props) => {
     }
 
     return(
-    <div key={`section_${props.section.title}`} id={props.section.title} className= "descriptionContainer">
+    <div id={props.section.title} className= "descriptionContainer">
         {props.contents.map((content, i) =>{
-            return <div>
+            return <div key={`section_${props.section.title}_${content.Name}`} >
                         <div className='start pt' id={`${content.Name}stpt1`} style={{top:`${content.Top}%`, left:`${content.Left}%`}} onMouseEnter={()=>highlight(content.Number)} onMouseLeave={()=>unhighlight()} onClick={()=>setSelectNum(content.Number)}>
                         </div>
                         <div className='leaderTitle'>

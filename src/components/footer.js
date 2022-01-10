@@ -1,6 +1,4 @@
 import * as React from "react"
-import { graphql, useStaticQuery, Link } from 'gatsby'
-import { isMobile } from "react-device-detect";
 import  instaIcon from "../images/I_Icon.svg";
 import  emailIcon from "../images/E_Icon.svg";
 import  twitterIcon from "../images/T_Icon.svg";
@@ -27,7 +25,7 @@ const Footer = (props) => {
   return(
       <div id="footer" className="siteFooter">
         <div className="footerTab mx-auto">
-          {icons.map((icon, i)=>(<Icon image={icon}/>))}
+          {icons.map((icon, i)=>(<Icon key={`icon_${i}`} image={icon}/>))}
         </div> 
       </div>
     )
