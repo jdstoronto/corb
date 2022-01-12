@@ -3,6 +3,8 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import { isMobile } from "react-device-detect";
 
 const Header = (props) => {
+  const [collapseMain, setCollapseMain] = React.useState(false);
+  
   const data = useStaticQuery(
     graphql`
     query HeadingQuery {
@@ -34,7 +36,7 @@ const Header = (props) => {
     var header = document.getElementById('header'); 
 
     window.addEventListener('scroll', (event) => {
-      if (window.pageYOffset>50){
+      if (window.pageYOffset>50 && !collapseMain){
         //console.log(header.classList.contains('siteHeader-squash'))
         if ( !header.classList.contains('siteHeader-squash') ){
           header.classList.add('siteHeader-squash')
@@ -60,7 +62,10 @@ const Header = (props) => {
             <div className="container">
               <div className="row" style={{width:`100%`}}>
                 <div className="col-4">
-                  <div className="navbar-nav">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" onClick={()=>setCollapseMain(!collapseMain)}>
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div className={`navbar-nav navbar-collapse ${collapseMain?``:`collapse`}`}id="navbarTogglerDemo01">
                     {pages.map(page => {
                       let title = page.title;
                       return <a key={`nav${title}`} className="nav-item nav-link" href={`/${title.replace(' ', '')}`}>{title}</a>})
