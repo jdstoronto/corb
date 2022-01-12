@@ -71,11 +71,21 @@ const IndexPage = ({data}) => {
 
   React.useEffect(() => {
     var setHeight = document.getElementById("scrollingPage"); 
+    var featContainer = document.getElementById(allSections[0].title); 
+    var featImg = document.getElementById("featureImg"); 
     // select video element         
     var vid = document.getElementById('featureVideo'); 
     // var vid = $('#v0')[0]; // jquery option
     if(!frameDuration){
       frameDuration = 1;
+    }
+
+    if(isMobile){
+      featContainer.style.height = `${window.innerHeight}px`
+      featImg.style.height = `${window.innerHeight}px`
+      vid.style.height = `${window.innerHeight*0.7}px`
+    }else{
+      //featContainer.style.height = `${window.innerHeight}px`
     }
     // dynamically set the page height according to video length
     vid.addEventListener('loadedmetadata', function() {
@@ -100,8 +110,8 @@ const IndexPage = ({data}) => {
         </video>
       </div>
       <div id="scrollingPage">
-        <div className ="featureImage" id={allSections[0].title}>   
-          <img src={imageRes} alt='feature CORB unit'/> 
+        <div className ="feature" id={allSections[0].title}>   
+          <img id="featureImg" src={imageRes} alt='feature CORB unit'/> 
         </div>
         {postSections.map(section => {
           let contents = objectFromTable(section.content)

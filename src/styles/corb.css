@@ -95,7 +95,7 @@ body {
   font-size: 3em;
 }
 
-.featureImage{
+.feature{
   top: 0px;
   bottom: 0px;
   right: 0px;
@@ -104,7 +104,7 @@ body {
   padding: 0px;
 }
 
-.featureImage img {
+.feature img {
   min-width: 600px;
   width: 100%;
   object-fit: cover;
@@ -126,14 +126,15 @@ body {
 }
 
 #featureVideoContainer{
-    top: 0px;
-    right: 0px;
-    left: 0px;
     position: fixed;
     z-index: -1;
+    right: 0px;
+    left: 0px;
+    top:0px;
 }
 
 #featureVideo{
+  object-fit: cover;
   width: 100%;
 }
 
@@ -250,3 +251,30 @@ body {
   color: #484849;
 }
 
+@media only screen and (max-width: 600px) {
+  .feature{
+    height: 100%;
+    margin: 0;
+  }
+  
+  .feature img {
+    min-width: inherit;
+    object-fit: none;
+  }
+
+  #featureVideo{
+    object-fit: none;
+  }
+
+  .sectionDescription{
+    width: 100%;
+    bottom: 0;
+    top: 70%;
+    left: 0;
+    position: absolute;
+  }
+
+  .endTitle{
+    display: none;
+  }
+}
