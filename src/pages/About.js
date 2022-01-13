@@ -25,7 +25,7 @@ const AboutPost = (props) => {
   console.log(props.section)
 
   return(
-    <div className="profile col-4">
+    <div className="profile col-sm-4">
       {props.section.featuredImage?<img src={props.section.featuredImage.node.sourceUrl} className="profilePic"/>:null}
       <div className="profileHead">
         <h2>{props.section.title}</h2>

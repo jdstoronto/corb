@@ -31,11 +31,11 @@ const ContactPage = ({data}) => {
       <title>Home Page</title>
       <div className="container contact">
         <div className="row">
-          <div className="col-5">
+          <div className="col-md-5">
             <div dangerouslySetInnerHTML={{__html:contentArray[0]}}/>
             <div dangerouslySetInnerHTML={{__html:contentArray[1]}}/>
           </div>
-          <div className="col-7">
+          <div className="col-lg-7">
             <div id= "contactForm" dangerouslySetInnerHTML={{__html:contentArray[2]}} />
           </div>
         </div>
