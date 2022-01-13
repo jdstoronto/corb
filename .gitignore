@@ -1,4 +1,8 @@
 node_modules/
-.cache/
-public
-
+|-- /plugins
+|-- /public
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-ssr.js
+|-- gatsby-browser.js

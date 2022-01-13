@@ -35,5 +35,20 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: "gatsby-source-woocommerce",
+      options: {
+    // Base URL of WordPress site
+      api: 'wordpress.domain',
+    // true if using https. false otherwise.
+      https: false,
+      api_keys: {
+        consumer_key: `ck_20b57dec70c323ddbdc2b0bed6ffc740180338cf`,
+        consumer_secret: `cs_025828c1e6e5a48cfd3f59d775b8c7462858b347`,
+      },
+    // Array of strings with fields you'd like to create nodes for...
+      fields: ['products', 'products/categories', 'products/attributes'],
+      }
+    },
   ],
 };
