@@ -1,6 +1,6 @@
 import * as React from "react"
 import { isMobile } from "react-device-detect";
-import LeaderLine from "leader-line-new";
+//import LeaderLine from "leader-line-new";
 
 const Section = (props) => {
     const [highlightNum, setHighlightNum] = React.useState(1);
@@ -9,7 +9,8 @@ const Section = (props) => {
 
     React.useEffect(() => {
         if(!renderedLeader && document.getElementById(`${props.contents[0].Name}endpt1`)){
-            let container = document.getElementById(props.section.title)
+            const LeaderLine = require("leader-line-new")
+             let container = document.getElementById(props.section.title)
             //console.log(container.style.height)
             //console.log(window.innerHeight)
             container.style.height = `${window.innerHeight}px`
