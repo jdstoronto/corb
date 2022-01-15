@@ -19,8 +19,9 @@ const headingStyles = {
 const SupportPage = ({data}) => {
   console.log(data)
   var contentArray = data.wpPage.content.split("\n")
+  var products = data.allWcProducts.nodes
   contentArray = contentArray.filter(Boolean)
-  console.log(contentArray)
+  console.log(products)
 
   useEffect(() => {console.log("test")});
 
@@ -32,20 +33,45 @@ const SupportPage = ({data}) => {
         <h4 style={headingStyles} dangerouslySetInnerHTML={{__html:contentArray[0]}} />
       </div>
       <div className="mx-auto" style={{textAlign:"center"}}><h1>SHOP</h1></div>
-      <div data-block-name="woocommerce/all-products" data-columns="3" data-rows="3" data-align-buttons="false" data-content-visibility="{&quot;orderBy&quot;:true}" data-orderby="date" data-layout-config="[[&quot;woocommerce\/product-image&quot;],[&quot;woocommerce\/product-title&quot;],[&quot;woocommerce\/product-price&quot;],[&quot;woocommerce\/product-rating&quot;],[&quot;woocommerce\/product-button&quot;]]" className="wp-block-woocommerce-all-products wc-block-all-products" data-attributes="{&quot;alignButtons&quot;:false,&quot;columns&quot;:3,&quot;contentVisibility&quot;:{&quot;orderBy&quot;:true},&quot;isPreview&quot;:false,&quot;layoutConfig&quot;:[[&quot;woocommerce/product-image&quot;],[&quot;woocommerce/product-title&quot;],[&quot;woocommerce/product-price&quot;],[&quot;woocommerce/product-rating&quot;],[&quot;woocommerce/product-button&quot;]],&quot;orderby&quot;:&quot;date&quot;,&quot;rows&quot;:3}"></div>
+      <div className="about container">
+          <div className="row" style={{width:`100%`}}>
+            {products.map(product => (<ProductDiv info={product}/>))}
+          </div>
+      </div>
       <Footer />
     </main>
   )
 
 }
 
+const ProductDiv = (props) =>{
+  return(
+    <div className = "product col-sm-4">
+      <img src={props.info.images[0].src}></img>
+      <div className="profileHead">
+        <h2>{props.info.name}</h2>
+        {props.info.price}
+      </div>
+    </div>
+  )
+}
+
 export default SupportPage
 
 export const supportQuery = graphql`
-query SupportQuery{
+query SupportQuery {
   wpPage(title: {eq: "Support"}) {
     id
     content
+  }
+  allWcProducts {
+    nodes {
+      name
+      images {
+        src
+      }
+      price
+    }
   }
 }
 `
