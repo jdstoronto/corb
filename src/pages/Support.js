@@ -33,7 +33,7 @@ const SupportPage = ({data}) => {
         <h4 style={headingStyles} dangerouslySetInnerHTML={{__html:contentArray[0]}} />
       </div>
       <div className="mx-auto" style={{textAlign:"center"}}><h1>SHOP</h1></div>
-      <div className="about container">
+      <div className="support container">
           <div className="row" style={{width:`100%`}}>
             {products.map(product => (<ProductDiv info={product}/>))}
           </div>
@@ -47,11 +47,13 @@ const SupportPage = ({data}) => {
 const ProductDiv = (props) =>{
   return(
     <div className = "product col-sm-4">
+      <a href={props.info.permalink}>
       <img src={props.info.images[0].src}></img>
       <div className="profileHead">
         <h2>{props.info.name}</h2>
         {props.info.price}
       </div>
+      </a>
     </div>
   )
 }
@@ -71,6 +73,7 @@ query SupportQuery {
         src
       }
       price
+      permalink
     }
   }
 }

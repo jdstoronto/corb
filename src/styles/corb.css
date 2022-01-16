@@ -2,6 +2,10 @@ body {
     background-color: #e2e1dc;
   }
 
+a {
+  color: rgb(72, 72, 73)
+}
+
 #header{
   direction: ltr;
   color: #484849;
