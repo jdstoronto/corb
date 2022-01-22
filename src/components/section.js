@@ -18,11 +18,14 @@ const Section = (props) => {
             //container.style.color = "#ff0000";
             //console.log(container.style.height)
             props.contents.map(content =>{
-                var myLine = new LeaderLine(
-                    document.getElementById(`${content.Name}endpt1`),
-                    document.getElementById(`${content.Name}stpt1`),
-                    {color: 'grey', size: 2}
-                );
+                if(document.getElementById(`${content.Name}endpt1`) && document.getElementById(`${content.Name}stpt1`)){
+                    var myLine = new LeaderLine(
+                        document.getElementById(`${content.Name}endpt1`),
+                        document.getElementById(`${content.Name}stpt1`),
+                        {color: 'grey', size: 2}
+                    );
+                    //return myLine
+                }
             })
             renderedLeader=true;
             
