@@ -98,6 +98,11 @@ const IndexPage = ({data}) => {
     var frameNumber  = (window.pageYOffset/(setHeight.clientHeight-window.innerHeight))*frameDuration;
     vid.currentTime  = frameNumber;
     });
+    return ()=>{
+      console.log("we out")
+      let elements = document.getElementsByClassName("leader-line")
+      while (elements.length > 0) elements[0].remove(); 
+  }
   });
 
   return (

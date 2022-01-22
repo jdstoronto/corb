@@ -6,6 +6,7 @@ const Section = (props) => {
     const [highlightNum, setHighlightNum] = React.useState(1);
     const [selectNum, setSelectNum] = React.useState(1);
     var renderedLeader = false;
+    console.log(props)
 
     React.useEffect(() => {
         if(!renderedLeader && document.getElementById(`${props.contents[0].Name}endpt1`)){
@@ -27,7 +28,11 @@ const Section = (props) => {
             
         }
         return ()=>{
+            /*
             console.log("we out")
+            let elements = document.getElementsByClassName("leader-line")
+            while (elements.length > 0) elements[0].remove();
+            */
         }
     })
 
