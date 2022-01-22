@@ -42,7 +42,7 @@ const Header = (props) => {
           header.classList.add('siteHeader-squash')
         }   
       }else{
-        console.log(header.classList.remove('siteHeader-squash'))
+        header.classList.remove('siteHeader-squash')
       }
     });
   });
@@ -62,8 +62,8 @@ const Header = (props) => {
             <div className="container">
               <div className="row" style={{width:`100%`}}>
                 <div className="col-4">
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" onClick={()=>setCollapseMain(!collapseMain)}>
-                    <span class="navbar-toggler-icon"></span>
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" onClick={()=>setCollapseMain(!collapseMain)}>
+                    <span className="navbar-toggler-icon"></span>
                   </button>
                   <div className={`navbar-nav navbar-collapse ${collapseMain?``:`collapse`}`}id="navbarTogglerDemo01">
                     {pages.map(page => {
