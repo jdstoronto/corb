@@ -1,9 +1,9 @@
 import * as React from "react"
-import { useEffect } from 'react';
 import Header from "../components/header"
 import Footer from '../components/footer'
 import { graphql, Link } from 'gatsby'
-import Img from "gatsby-image"
+import { Helmet } from "react-helmet"
+
 
 // styles
 const pageStyles = {
@@ -21,12 +21,18 @@ const headingStyles = {
 const ContactPage = ({data}) => {
   var contentArray = data.wpPage.content.split("\n")
   contentArray = contentArray.filter(Boolean)
-  console.log(contentArray)
+  //console.log(contentArray)
   
   React.useEffect(() => {console.log("Contact Us")});
 
   return (
     <main style={pageStyles} >
+      <Helmet>
+        <script src='http://pre-corb.com/wp-content/plugins/wpforms-lite/assets/js/jquery.validate.min.js?ver=1.19.3' type="text/javascript"></script>
+        <script src='http://pre-corb.com/wp-content/plugins/wpforms-lite/assets/js/mailcheck.min.js?ver=1.1.2' type="text/javascript"></script>
+        <script src='http://pre-corb.com/wp-content/plugins/wpforms-lite/assets/js/punycode.min.js?ver=1.0.0' type="text/javascript"></script>
+        <script src='http://pre-corb.com/wp-content/plugins/wpforms-lite/assets/js/wpforms.min.js?ver=1.7.2' type="text/javascript"></script>
+      </Helmet>
       <Header />
       <title>Home Page</title>
       <div className="container contact">
