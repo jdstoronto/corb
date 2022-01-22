@@ -22,10 +22,12 @@ const Section = (props) => {
                     document.getElementById(`${content.Name}stpt1`),
                     {color: 'grey', size: 2}
                 );
-                return myLine
             })
             renderedLeader=true;
             
+        }
+        return ()=>{
+            console.log("we out")
         }
     })
 
