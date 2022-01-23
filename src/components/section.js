@@ -6,7 +6,7 @@ const Section = (props) => {
     const [highlightNum, setHighlightNum] = React.useState(1);
     const [selectNum, setSelectNum] = React.useState(1);
     var renderedLeader = false;
-    console.log(props)
+    //console.log(props)
 
     React.useEffect(() => {
         if(!renderedLeader && document.getElementById(`${props.contents[0].Name}endpt1`)){

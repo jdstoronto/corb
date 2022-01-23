@@ -76,6 +76,7 @@ const IndexPage = ({data}) => {
     // select video element         
     var vid = document.getElementById('featureVideo'); 
     // var vid = $('#v0')[0]; // jquery option
+    
     if(!frameDuration){
       frameDuration = 1;
     }
@@ -87,22 +88,31 @@ const IndexPage = ({data}) => {
     }else{
       //featContainer.style.height = `${window.innerHeight}px`
     }
-    // dynamically set the page height according to video length
+    /* dynamically set the page height according to video length
     vid.addEventListener('loadedmetadata', function() {
     //setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
     frameDuration = vid.duration
     });
+    */
 
     window.addEventListener('scroll', (event) => {
-    //console.log(window.pageYOffset);
-    var frameNumber  = (window.pageYOffset/(setHeight.clientHeight-window.innerHeight))*frameDuration;
-    vid.currentTime  = frameNumber;
+      var frameNumber  = (window.pageYOffset/(setHeight.clientHeight-window.innerHeight))*vid.duration;
+      console.log(`scrolling at the following position ${window.pageYOffset} current frame was ${vid.currentTime} and will be changed to ${frameNumber} total length is ${vid.duration}`);
+      vid.currentTime  = frameNumber;
     });
+
+    window.addEventListener('hashchange', (event) =>{
+      var frameNumber  = (window.pageYOffset/(setHeight.clientHeight-window.innerHeight))*vid.duration;
+      console.log(`hash changed at the following position ${window.pageYOffset} current frame was ${vid.currentTime} and will be changed to ${frameNumber}  total length is ${vid.duration}`);
+      vid.currentTime  = 20;
+    });
+
+    //delete leaders
     return ()=>{
       console.log("we out")
       let elements = document.getElementsByClassName("leader-line")
       while (elements.length > 0) elements[0].remove(); 
-  }
+    }
   });
 
   return (

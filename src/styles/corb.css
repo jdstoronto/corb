@@ -267,6 +267,10 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
+  #header{
+    min-width: auto;
+  }
+
   .feature{
     height: 100%;
     margin: 0;
@@ -291,5 +295,20 @@ a {
 
   .endTitle{
     display: none;
+  }
+
+  .tagLine{
+    color: #202020;
+    background-color: #ffffff7a;
+    padding: 0.2em;
+    border-radius: 0.2em;
+    width: 100%;
+    bottom: 0;
+    top: 70%;
+    left: 0;
+    position: absolute;
+    z-index: 10;
+    overflow-y: scroll;
+    height: auto;
   }
 }
