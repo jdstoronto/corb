@@ -264,6 +264,14 @@ a {
 .contact{
   margin-top:100px;
   color: #484849;
+  min-height: 50%;
+}
+
+.career{
+  margin-top:50px;
+  background-color: #ffffff85;
+  min-height: 200px;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 600px) {
