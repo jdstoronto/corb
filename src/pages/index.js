@@ -97,13 +97,13 @@ const IndexPage = ({data}) => {
 
     window.addEventListener('scroll', (event) => {
       var frameNumber  = (window.pageYOffset/(setHeight.clientHeight-window.innerHeight))*vid.duration;
-      console.log(`scrolling at the following position ${window.pageYOffset} current frame was ${vid.currentTime} and will be changed to ${frameNumber} total length is ${vid.duration}`);
+      //console.log(`scrolling at the following position ${window.pageYOffset} current frame was ${vid.currentTime} and will be changed to ${frameNumber} total length is ${vid.duration}`);
       vid.currentTime  = frameNumber;
     });
 
     window.addEventListener('hashchange', (event) =>{
       var frameNumber  = (window.pageYOffset/(setHeight.clientHeight-window.innerHeight))*vid.duration;
-      console.log(`hash changed at the following position ${window.pageYOffset} current frame was ${vid.currentTime} and will be changed to ${frameNumber}  total length is ${vid.duration}`);
+      //console.log(`hash changed at the following position ${window.pageYOffset} current frame was ${vid.currentTime} and will be changed to ${frameNumber}  total length is ${vid.duration}`);
       vid.currentTime  = 20;
     });
 
