@@ -14,7 +14,7 @@ a {
   font-family: "Helvetica Neue",sans-serif;
   line-height: 2.46153846;
   left: 0;
-  width: 100%;
+  width: 100vw;
   min-width: 600px;
   z-index: 99999;
 }
@@ -22,7 +22,7 @@ a {
 .siteFooter{
   font-size: 13px;
   z-index: 99999;
-  width: 100%;
+  width: 100vw;
   bottom: 0;
   line-height: 2.45;
   position: fixed;
@@ -140,11 +140,12 @@ a {
     right: 0px;
     left: 0px;
     top:0px;
+    width: 100vw;
 }
 
 #featureVideo{
   object-fit: cover;
-  width: 100%;
+  width: 100vw;
 }
 
 #scrollingPage{
@@ -171,7 +172,29 @@ a {
   top: 36%;
   left: 37%;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.363);
+  background: radial-gradient(transparent 30%, white 40%, transparent 50%);
+  border-radius: 50%;
+  background-position:center;
+  background-repeat:no-repeat;
+  /* animation:startptchange 5s linear infinite; */
+}
+
+@keyframes startptchange{
+  0% {
+    background-size:10 10;
+  }
+  25% {
+    background-size:25% 25%;
+  }
+  50% {
+    background-size:50% 50%;
+  }
+  75% {
+    background-size:75% 75%;
+  }
+  100% {
+    background-size:100% 100%;
+  }
 }
 
 .end{
@@ -280,7 +303,7 @@ a {
   }
 
   .feature{
-    height: 100%;
+    height: 100vh;
     margin: 0;
   }
   

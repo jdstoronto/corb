@@ -82,8 +82,8 @@ const IndexPage = ({data}) => {
     }
 
     if(isMobile){
-      featContainer.style.height = `${window.innerHeight}px`
-      featImg.style.height = `${window.innerHeight}px`
+      featContainer.style.height = `${window.innerHeight-50}px`
+      featImg.style.height = `${window.innerHeight-50}px`
       vid.style.height = `${window.innerHeight*0.7}px`
     }else{
       //featContainer.style.height = `${window.innerHeight}px`
@@ -97,6 +97,9 @@ const IndexPage = ({data}) => {
 
     window.addEventListener('scroll', (event) => {
       var frameNumber  = (window.pageYOffset/(setHeight.clientHeight-window.innerHeight))*vid.duration;
+      if(!frameNumber){
+        frameNumber=0
+      }
       //console.log(`scrolling at the following position ${window.pageYOffset} current frame was ${vid.currentTime} and will be changed to ${frameNumber} total length is ${vid.duration}`);
       vid.currentTime  = frameNumber;
     });
