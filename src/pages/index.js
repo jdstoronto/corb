@@ -82,8 +82,8 @@ const IndexPage = ({data}) => {
     }
 
     if(isMobile){
-      featContainer.style.height = `${window.innerHeight-50}px`
-      featImg.style.height = `${window.innerHeight-50}px`
+      featContainer.style.height = `${window.innerHeight}px`
+      featImg.style.height = `${window.innerHeight}px`
       vid.style.height = `${window.innerHeight*0.7}px`
     }else{
       //featContainer.style.height = `${window.innerHeight}px`

@@ -130,8 +130,8 @@ a {
   padding-top: 60px;
   height: 700px;
   position: relative;
-  border: red;
-  border: dashed;
+  /* border: red; */
+  /* border: dashed; */
 }
 
 #featureVideoContainer{
@@ -172,64 +172,66 @@ a {
   top: 36%;
   left: 37%;
   position: absolute;
-  background: radial-gradient(transparent 30%, white 40%, transparent 50%);
+  background: radial-gradient(#ffffff46 30%, white 40%, transparent 50%);
   border-radius: 50%;
   background-position:center;
   background-repeat:no-repeat;
-  /* animation:startptchange 5s linear infinite; */
+ 
+}
+
+.startselected{
+  animation:startptchange 2s linear infinite;
 }
 
 @keyframes startptchange{
   0% {
-    background-size:10 10;
-  }
-  25% {
-    background-size:25% 25%;
-  }
-  50% {
-    background-size:50% 50%;
+    opacity: 1;
+    transform: scale(0.5);
   }
   75% {
-    background-size:75% 75%;
+    opacity: 1;
   }
   100% {
-    background-size:100% 100%;
+    opacity: 0;
+    transform: scale(1);
   }
 }
 
 .end{
-    border: black;
-    border-width: 1px;
-    border-style: outset;
-    background-color: #f8f9fa52;
-    font-size: 1.5em;
-    text-align: center;
-    border-radius: 38px;
-    top: 31%;
-    left: 71%;
-    position: relative;
+  color: rgb(50, 50, 50);
+  border: rgb(50, 50, 50);
+  border-width: 2px;
+  border-style: outset;
+  border-style: solid;
+  background-color: #f8f9fa52;
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 38px;
+  top: 31%;
+  left: 71%;
+  position: relative;
     
 }
 
-.selected{
+.endselected{
   background-color: rgba(255, 255, 255, 0.842);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
 	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+		background-size: 95% 95%;
+		box-shadow: 0 0 0 0 rgba(50, 50, 50, 0.7);
 	}
 
 	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+		background-size: 100% 100%;
+		box-shadow: 0 0 0 10px rgba(50, 50, 50, 0);
 	}
 
 	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+		background-size: 95% 95%;
+		box-shadow: 0 0 0 0 rgba(50, 50, 50, 0);
 	}
 }
 
@@ -312,9 +314,9 @@ a {
     object-fit: none;
   }
 
-  #featureVideo{
+ /*  #featureVideo{
     object-fit: none;
-  }
+  } */
 
   .sectionDescription{
     width: 100%;
@@ -322,6 +324,10 @@ a {
     top: 70%;
     left: 0;
     position: absolute;
+  }
+
+  .end{
+    left:80%;
   }
 
   .endTitle{
