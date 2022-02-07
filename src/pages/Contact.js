@@ -22,8 +22,14 @@ const ContactPage = ({data}) => {
   var contentArray = data.wpPage.content.split("\n")
   contentArray = contentArray.filter(Boolean)
   //console.log(contentArray)
+  var form = contentArray[2].replace("/graph","/Contact/")
+  //console.log(form)
   
   React.useEffect(() => {console.log("Contact Us")});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
 
   return (
     <main style={pageStyles} >
@@ -42,7 +48,7 @@ const ContactPage = ({data}) => {
             <div dangerouslySetInnerHTML={{__html:contentArray[1]}}/>
           </div>
           <div className="col-lg-7">
-            <div id= "contactForm" dangerouslySetInnerHTML={{__html:contentArray[2]}} />
+            <div id= "contactForm" dangerouslySetInnerHTML={{__html:form}} />
           </div>
         </div>
       </div>
