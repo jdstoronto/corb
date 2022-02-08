@@ -50,7 +50,7 @@ const ContactPage = ({data}) => {
           <div className="col-lg-7">
             {/* <div id= "contactForm" dangerouslySetInnerHTML={{__html:form}} /> */}
             <div className="wpforms-container wpforms-container-full">
-              <form className="wpforms-validate wpforms-form" method="post" action="#">
+              <form className="wpforms-validate wpforms-form" method="post" action="https://getform.io/f/5e9ba88b-1c9e-4ed2-be68-94b057f3eda2">
                 <div className="wpforms-field-container">
                   <label className="wpforms-field-label">
                     Name
@@ -71,7 +71,7 @@ const ContactPage = ({data}) => {
                       Email
                       <span className="wpforms-required-label">*</span>
                     </label>
-                    <input type="email" className="wpforms-field-medium wpforms-field-required">
+                    <input type="email" className="wpforms-field-medium wpforms-field-required" name="email">
                     </input>
                   </div>
                   <div className="wpforms-field wpforms-field-textarea">
